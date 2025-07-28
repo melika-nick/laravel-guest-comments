@@ -2,17 +2,24 @@
 namespace App\Http\Controllers\UI;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostUIController extends Controller
 {
-    public function index()
+    public function indexAdmin()
     {
         $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        $comments = Comment::all();
+        return view('posts.index', compact('posts', 'comments'));
     }
-
+    public function indexUser()
+    {
+        $posts = Post::all();
+        $comments = Comment::all();
+        return view('posts.indexUser', compact('posts', 'comments'));
+    }
     public function create()
     {
         return view('posts.create');
