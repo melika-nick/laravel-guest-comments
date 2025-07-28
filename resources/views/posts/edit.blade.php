@@ -14,6 +14,8 @@
     <input type="text" name="title" value="{{ $post->title }}"><br>
     <textarea name="content">{{ $post->content }}</textarea><br>
     <button type="submit">save</button>
+    <br><br>
+    <a href="{{ route('posts.index') }}">back</a>
 </form>
 </body>
 </html>
