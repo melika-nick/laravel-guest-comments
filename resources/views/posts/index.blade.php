@@ -20,7 +20,7 @@
             </form>
         </li>
         <br>
-    @endforeach
+        @endforeach
     <br><br>
     <a href="{{ route('posts.create') }}">create new post</a>
 
