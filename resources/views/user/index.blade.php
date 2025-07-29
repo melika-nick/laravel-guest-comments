@@ -1,16 +1,18 @@
+<?php
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Posts</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+body {
+    font-family: Arial, sans-serif;
             background-color: #f6f8fa;
             color: #333;
             padding: 20px;
         }
         .post {
-            background-color: #ffffff;
+    background-color: #ffffff;
             border: 1px solid #dcdcdc;
             border-radius: 8px;
             padding: 15px;
@@ -18,48 +20,48 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .post-title {
-            font-size: 20px;
+    font-size: 20px;
             font-weight: bold;
             color: #2c3e50;
             margin-bottom: 10px;
         }
         .post-content {
-            font-size: 16px;
+    font-size: 16px;
             margin-bottom: 15px;
         }
         .comment {
-            background-color: #f0f0f0;
+    background-color: #f0f0f0;
             border-left: 4px solid #3498db;
             padding: 10px;
             margin-bottom: 10px;
             border-radius: 5px;
         }
         .comment-author {
-            font-weight: bold;
+    font-weight: bold;
             margin-bottom: 5px;
             color: #2980b9;
         }
         .no-comments {
-            color: #999;
-            font-style: italic;
+    color: #999;
+    font-style: italic;
             margin-top: 10px;
         }
         .comment-form {
-            margin-top: 15px;
+    margin-top: 15px;
             padding-top: 10px;
             border-top: 1px solid #ccc;
         }
         .comment-form input,
-        .comment-form textarea {
-            width: 100%;
-            padding: 8px;
+.comment-form textarea {
+    width: 100%;
+    padding: 8px;
             margin-top: 5px;
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
         .comment-form button {
-            background-color: #3498db;
+    background-color: #3498db;
             color: #fff;
             border: none;
             padding: 8px 16px;
@@ -67,7 +69,7 @@
             cursor: pointer;
         }
         .comment-form button:hover {
-            background-color: #2980b9;
+    background-color: #2980b9;
         }
     </style>
 </head>
@@ -114,7 +116,7 @@
             </form>
         </div>
     </div>
-@endforeach
+    @endforeach
 
-</body>
-</html>
+    </body>
+    </html>
