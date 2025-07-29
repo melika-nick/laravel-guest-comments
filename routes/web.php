@@ -19,3 +19,5 @@ Route::controller(PostUIController::class)->prefix('admin/posts')->name('posts.'
 //Route::post('user/posts', [CommentController::class, 'store'])->name('comments.store');
 Route::get('user/index', [UserPostController::class, 'index']);
 Route::post('posts/{post}/comments', [UserCommentController::class, 'store']);
+
+Route::get('comments/{id}/approve', [UserCommentController::class, 'approve']);
