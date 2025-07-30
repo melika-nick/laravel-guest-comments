@@ -16,7 +16,8 @@ Route::controller(PostUIController::class)->prefix('admin/posts')->name('posts.'
     Route::put('/{post}', 'update')->name('update');
     Route::delete('/{post}', 'destroy')->name('destroy');
 });
-//Route::post('user/posts', [CommentController::class, 'store'])->name('comments.store');
+Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts');
+
 Route::get('user/index', [UserPostController::class, 'index']);
 Route::post('posts/{post}/comments', [UserCommentController::class, 'store']);
 
