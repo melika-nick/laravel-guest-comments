@@ -104,7 +104,7 @@ body {
 
         <div class="comment-form">
             <h4 style="margin-bottom: 5px;">📝 Add a Comment:</h4>
-            <form method="POST" action="{{ url('/posts/' . $post->id . '/comments') }}">
+            <form method="POST" action="{{ url('user/posts/' . $post->id . '/comments') }}">
                 @csrf
                 <label for="author_name">Name:</label>
                 <input type="text" name="author_name" required>

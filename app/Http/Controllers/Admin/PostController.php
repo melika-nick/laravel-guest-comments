@@ -4,43 +4,41 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        return Post::all();
+        $posts = Post::all();
+        $comments = Comment::all();
+        return view('admin.posts.index', compact('posts', 'comments'));
+    }
+    public function create()
+    {
+        return view('admin.posts.create');
     }
 
     public function store(Request $request)
     {
-        return Post::create($request->only('title', 'content'));
+        Post::create($request->only('title', 'content'));
+        return redirect()->route('posts');
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Post $post)
+    public function edit(Post $post)
     {
-        return $post;
+        return view('admin.posts.edit', compact('post'));
     }
 
     public function update(Request $request, Post $post)
     {
         $post->update($request->only('title', 'content'));
-        return $post;
+        return redirect()->route('posts');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Post $post)
     {
         $post->delete();
-        return response()->noContent();
+        return redirect()->route('posts');
     }
 }
