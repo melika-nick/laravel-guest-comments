@@ -57,16 +57,19 @@
         {{ session('message') }}
     </div>
 @endif
+@php
+    /** @var \Illuminate\Support\Collection|\App\Models\Comment[] $comments */
+@endphp
 
-@forelse($comments as $comment)
+@foreach($comments as $comment)
+
     <div class="comment-box">
         <div class="post-title">📌 For Post: {{ $comment->post->title }}</div>
-
         <div class="comment-author">{{ $comment->author_name }}</div>
         <div class="comment-body">{{ $comment->body }}</div>
 
         @if(!$comment->approved)
-            <form method="POST" action="{{ route('admin.comments.approve', $comment->id) }}">
+            <form method="POST" action="{{ route('comments.approve', $comment->id) }}">
                 @csrf
                 @method('PUT')
                 <button class="approve-btn" type="submit">✅ Approve</button>
@@ -75,10 +78,10 @@
             <div class="approved">✅ Approved</div>
         @endif
     </div>
-@empty
-    <p>No comments found.</p>
-@endforelse
+@endforeach
 
+<br><br>
+<a href="{{ route('posts.index') }}">POSTS</a>
 </body>
 </html>
 

@@ -22,6 +22,8 @@
         <br>
     @endforeach
     <br><br>
+    <a href="{{ route('comments.index') }}">comments</a>
+    <br><br>
     <a href="{{ route('posts.create') }}">create new post</a>
 
 </ul>
