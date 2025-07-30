@@ -17,12 +17,28 @@ class PostController extends Controller
     }
     public function create()
     {
-        return view('posts.create');
+        return view('admin.posts.create');
     }
 
     public function store(Request $request)
     {
         Post::create($request->only('title', 'content'));
-        return redirect()->route('admin.posts.index');
+        return redirect()->route('posts');
+    }
+    public function edit(Post $post)
+    {
+        return view('admin.posts.edit', compact('post'));
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        $post->update($request->only('title', 'content'));
+        return redirect()->route('posts');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect()->route('posts');
     }
 }

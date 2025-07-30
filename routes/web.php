@@ -5,21 +5,19 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 use App\Http\Controllers\User\PostController as UserPostController;
 use App\Http\Controllers\User\CommentController as UserCommentController;
-use App\Http\Controllers\UI\PostUIController;
-//use App\Http\Controllers\CommentController;
 
-Route::controller(PostUIController::class)->prefix('admin/posts')->name('posts.')->group(function () {
-    Route::get('/create', 'create')->name('create');
-    Route::post('/', 'store')->name('store');
-    Route::get('/{post}/edit', 'edit')->name('edit');
-    Route::put('/{post}', 'update')->name('update');
-    Route::delete('/{post}', 'destroy')->name('destroy');
+Route::controller(AdminPostController::class)->prefix('admin/posts')->name('posts.')->group(function (){
+    Route::get('/', [AdminPostController::class, 'index'])->name('index');
+    Route::get('/create', [AdminPostController::class, 'create'])->name('create');
+    Route::post('/store', [AdminPostController::class, 'store'])->name('store');
+    Route::get('/{post}/edit', [AdminPostController::class, 'edit'])->name('edit');
+    Route::put('/{post}', [AdminPostController::class, 'update'])->name('update');
+    Route::delete('/{post}', [AdminPostController::class, 'destroy'])->name('destroy');
 });
-Route::get('admin/posts', [AdminPostController::class, 'index'])->name('posts');
-Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('posts.create');
+Route::controller(AdminCommentController::class)->prefix('admin/comments')->name('comments.')->group(function (){
+    Route::get('/', [AdminCommentController::class, 'index'])->name('index');
+    Route::put('/{comment}/approve', [AdminCommentController::class, 'approve'])->name('approve');
+});
 
 Route::get('user/index', [UserPostController::class, 'index']);
-Route::post('posts/{post}/comments', [UserCommentController::class, 'store']);
-
-Route::get('admin/comments', [AdminCommentController::class, 'index']);
-Route::put('admin/comments/{comment}/approve', [AdminCommentController::class, 'approve'])->name('admin.comments.approve');;
+Route::post('user/posts/{post}/comments', [UserCommentController::class, 'store']);
