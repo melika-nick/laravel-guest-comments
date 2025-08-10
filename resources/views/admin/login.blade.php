@@ -12,7 +12,7 @@
     <p style="color:red;">{{ session('error') }}</p>
 @endif
 
-<form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{ route('admin.login') }}">
     @csrf
     <label>Email:</label><br>
     <input type="email" name="email" required><br><br>

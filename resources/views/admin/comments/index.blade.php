@@ -69,7 +69,7 @@
         <div class="comment-body">{{ $comment->body }}</div>
 
         @if(!$comment->approved)
-            <form method="POST" action="{{ route('comments.approve', $comment->id) }}">
+            <form method="POST" action="{{ route('admin.comments.approve', $comment->id) }}">
                 @csrf
                 @method('PUT')
                 <button class="approve-btn" type="submit">✅ Approve</button>
@@ -81,7 +81,7 @@
 @endforeach
 
 <br><br>
-<a href="{{ route('posts.index') }}">POSTS</a>
+<a href="{{ route('admin.posts.index') }}">POSTS</a>
 </body>
 </html>
 

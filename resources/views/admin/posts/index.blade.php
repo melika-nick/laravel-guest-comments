@@ -12,8 +12,8 @@
         <li>
             <strong>{{ $post->title }}</strong><br>
             {{ $post->content }}<br>
-            <a href="{{ route('posts.edit', $post) }}">edit</a>
-            <form action="{{ route('posts.destroy', $post) }}" method="POST" style="display:inline;">
+            <a href="{{ route('admin.posts.edit', $post) }}">edit</a>
+            <form action="{{ route('admin.posts.destroy', $post) }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')
                 <button type="submit">delete</button>
@@ -22,9 +22,11 @@
         <br>
     @endforeach
     <br><br>
-    <a href="{{ route('comments.index') }}">comments</a>
+    <a href="{{ route('admin.comments.index') }}">comments</a>
     <br><br>
-    <a href="{{ route('posts.create') }}">create new post</a>
+    <a href="{{ route('admin.posts.create') }}">create new post</a>
+    <br><br>
+    <a href="{{ route('admin.dashboard') }}">dashboard</a>
 
 </ul>
 </body>

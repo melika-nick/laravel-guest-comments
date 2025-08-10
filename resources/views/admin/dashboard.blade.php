@@ -12,7 +12,7 @@
     <button type="submit">Logout</button>
 </form>
 
-<p><a href="{{ route('posts.index') }}">Manage Posts</a></p>
-<p><a href="{{ route('comments.index') }}">Manage Comments</a></p>
+<p><a href="{{ route('admin.posts.index') }}">Manage Posts</a></p>
+<p><a href="{{ route('admin.comments.index') }}">Manage Comments</a></p>
 </body>
 </html>
