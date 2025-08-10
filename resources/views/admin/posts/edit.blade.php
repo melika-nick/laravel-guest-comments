@@ -8,14 +8,14 @@
 <body>
 <h1>EDIT POSTS</h1>
 
-<form method="POST" action="{{ route('posts.update', $post) }}">
+<form method="POST" action="{{ route('admin.posts.update', $post) }}">
     @csrf
     @method('PUT')
     <input type="text" name="title" value="{{ $post->title }}"><br>
     <textarea name="content">{{ $post->content }}</textarea><br>
     <button type="submit">save</button>
     <br><br>
-    <a href="{{ route('posts.index') }}">back</a>
+    <a href="{{ route('admin.posts.index') }}">back</a>
 </form>
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>CREATE A NEW POST</h1>
-<form method="POST" action="{{ route('posts.store') }}">
+<form method="POST" action="{{ route('admin.posts.store') }}">
     @csrf
     <input type="text" name="title" placeholder="title"><br>
     <br>
@@ -15,7 +15,7 @@
     <br>
     <button type="submit">create</button>
     <br><br>
-    <a href="{{ route('posts.index') }}">back</a>
+    <a href="{{ route('admin.posts.index') }}">back</a>
 </form>
 </body>
 </html>
