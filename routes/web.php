@@ -38,5 +38,8 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
 // ======================
 // User Side (Public)
 // ======================
+Route::get('/', function (){
+    return redirect()->route('user.posts.index');
+});
 Route::get('user/index', [UserPostController::class, 'index'])->name('user.posts.index');
 Route::post('user/posts/{post}/comments', [UserCommentController::class, 'store'])->name('user.comments.store');
