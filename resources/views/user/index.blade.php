@@ -74,6 +74,12 @@ body {
     </style>
 </head>
 <body>
+<div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
+    <a href="{{ route('admin.login') }}" style="background-color: #2c3e50; color: white; padding: 8px 16px; border-radius: 5px; text-decoration: none;">
+        🔐 Admin Login
+    </a>
+</div>
+
 <h1 style="color:#2c3e50;">📄 Posts</h1>
 @if(session('message'))
     <div style="background-color: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #c3e6cb;">
